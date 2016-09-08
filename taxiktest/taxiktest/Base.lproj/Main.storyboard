@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="rkq-qR-NF4">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="uEt-xz-Nxo">
+            <objects>
+                <navigationController id="rkq-qR-NF4" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ew1-z3-sLi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="guQ-2X-umP" kind="relationship" relationship="rootViewController" id="bs5-Dw-499"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G2x-qQ-2YO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-489.375" y="101.16166666666666"/>
+        </scene>
+        <!--Города-->
+        <scene sceneID="fQB-Ij-9hE">
+            <objects>
+                <collectionViewController storyboardIdentifier="cityCollectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="guQ-2X-umP" customClass="cityCollectionViewController" customModule="taxiktest" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Lrt-oT-GLc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.91024237870000002" green="0.90198236700000001" blue="0.88556039330000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CNG-e0-6OQ">
+                            <size key="itemSize" width="299" height="100"/>
+                            <size key="headerReferenceSize" width="0.0" height="10"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="CellCity" reuseIdentifier="CellCity" id="4cP-YK-IEM" customClass="cityCollectionViewCell" customModule="taxiktest" customModuleProvider="target">
+                                <rect key="frame" x="38" y="10" width="299" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="299" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0b-U6-Wfk">
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="h0b-U6-Wfk" firstAttribute="leading" secondItem="4cP-YK-IEM" secondAttribute="leadingMargin" id="Nji-UY-WoF"/>
+                                    <constraint firstItem="h0b-U6-Wfk" firstAttribute="top" secondItem="4cP-YK-IEM" secondAttribute="topMargin" constant="15" id="Nwd-ZW-K3Y"/>
+                                    <constraint firstItem="h0b-U6-Wfk" firstAttribute="trailing" secondItem="4cP-YK-IEM" secondAttribute="trailingMargin" id="V9q-Z0-LVf"/>
+                                    <constraint firstItem="h0b-U6-Wfk" firstAttribute="centerY" secondItem="4cP-YK-IEM" secondAttribute="centerY" id="gfP-zf-zgh"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="labelNameCity" destination="h0b-U6-Wfk" id="b9b-D8-x9o"/>
+                                    <segue destination="QIz-tk-oyc" kind="push" identifier="segueCity" id="9cs-XU-YUB"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CellHeader" id="fb0-9y-NR0">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="10"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="guQ-2X-umP" id="Cn2-AK-pDz"/>
+                            <outlet property="delegate" destination="guQ-2X-umP" id="d6T-Ne-7g1"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="Номера" image="numberTabbarIcon" id="mo8-eJ-j0k"/>
+                    <navigationItem key="navigationItem" title="Города" id="13b-Kr-uao"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ejG-lP-lIC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-19.375" y="100.05"/>
+        </scene>
+        <!--View Map View Controller-->
+        <scene sceneID="vmV-FP-gOP">
+            <objects>
+                <viewController storyboardIdentifier="viewMapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QIz-tk-oyc" customClass="viewMapViewController" customModule="taxiktest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6PK-6L-o1e"/>
+                        <viewControllerLayoutGuide type="bottom" id="Sj8-U4-VPP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zhv-lt-LOR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nv2-YM-QtU"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nv2-YM-QtU" firstAttribute="leading" secondItem="zhv-lt-LOR" secondAttribute="leading" id="2gc-13-JXY"/>
+                            <constraint firstItem="nv2-YM-QtU" firstAttribute="top" secondItem="6PK-6L-o1e" secondAttribute="bottom" id="DPj-9T-onf"/>
+                            <constraint firstItem="nv2-YM-QtU" firstAttribute="bottom" secondItem="Sj8-U4-VPP" secondAttribute="top" id="hHM-rf-SBL"/>
+                            <constraint firstAttribute="trailing" secondItem="nv2-YM-QtU" secondAttribute="trailing" id="ich-S5-Utm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="CQi-GS-ldP"/>
+                    <connections>
+                        <outlet property="mapView" destination="nv2-YM-QtU" id="kf7-GJ-8ME"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5O1-te-Hrx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="460.5" y="99.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="numberTabbarIcon" width="21" height="21"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
+</document>
